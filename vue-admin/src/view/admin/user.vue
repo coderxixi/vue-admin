@@ -1,6 +1,6 @@
 <template>
   <div>
-       主页
+  admin/user.vue
   </div>
 </template>
 
