@@ -38,7 +38,7 @@ function getRouteByModule(file: string, module: { [key: string]: any }) {
 
   } as RouteRecordRaw
   console.log(route);
-  return route
+  return  Object.assign(route,module.component?.route) 
 }
 
 
