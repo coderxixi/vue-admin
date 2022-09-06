@@ -11,7 +11,6 @@ function getRoutes(){
     route.children=getChildrenRoutes(route)
     layoutRoutes.push(route)
   })
-  console.log("asdfasdf",layoutRoutes);
   
   return layoutRoutes
 }
@@ -37,7 +36,6 @@ function getRouteByModule(file: string, module: { [key: string]: any }) {
     component: module
 
   } as RouteRecordRaw
-  console.log(route);
   return  Object.assign(route,module.component?.route) 
 }
 
