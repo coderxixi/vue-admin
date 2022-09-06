@@ -10,6 +10,8 @@ const router=createRouter({
   ]
 })
 
+export default router
+
 export function setupRouter(app:App){
   app.use(router)
 }
