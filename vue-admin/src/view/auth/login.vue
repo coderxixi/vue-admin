@@ -1,10 +1,11 @@
 <template>
-  <div class="bg-slate-300 h-screen flex justify-center items-center">
+  <div class="bg-slate-300 h-screen flex justify-center items-center p-5">
     <div
       class="
         w-[720px]
         bg-white
-        grid-cols-2 grid
+        grid-cols-2 
+        md:grid
         -translate-y-16
         rounded-md
         shadow-sm
@@ -24,7 +25,7 @@
             <a href="" class=" text-xs text-gray-700">找回密码</a>
           </div>
       </div>
-      <div>
+      <div class="hidden md:block">
         <img
           src="@/assets/img/icon.png"
           alt=""
