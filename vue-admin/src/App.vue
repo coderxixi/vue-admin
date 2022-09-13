@@ -1,11 +1,10 @@
 <script setup lang="ts">
-  console.log(import.meta.env.);
+  // console.log(import.meta.env.);
   
 </script>
 
 <template>
   <div>
-    <div>sadfasdfasf</div>
  <router-view/>
   </div>
  
