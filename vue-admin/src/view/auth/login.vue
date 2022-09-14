@@ -37,9 +37,9 @@
 </template>
 
 <script setup lang="ts">
-import hdInput from "@/components/hd-input.vue";
-import hdButton from "@/components/hd-button.vue";
-import hdLink from "@/components/hd-link.vue"
+import hdInput from "@/components/from/hd-input.vue";
+import hdButton from "@/components/from/hd-button.vue";
+import hdLink from "@/components/from/hd-link.vue"
 components: {
   hdInput
   hdButton
