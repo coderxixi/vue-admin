@@ -1,6 +1,9 @@
 <template>
   <div>
-    <input type="text" placeholder="请输入手机号" class="h-input"/>
+    <input 
+    type="text"
+     placeholder="请输入手机号" class="h-input"
+     />
   </div>
 </template>
 

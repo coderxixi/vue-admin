@@ -1,5 +1,9 @@
 <template>
-  <div class="bg-slate-300 h-screen flex justify-center items-center p-5">
+  <Form class="bg-slate-300 h-screen flex justify-center items-center p-5"
+  @submit="onSubmit"
+  :validation-schema="schema"
+  #default="{errors}"
+  >
     <div
       class="
         w-[720px]
@@ -15,8 +19,25 @@
       <div class="p-6">
         <h2 class="text-center text-gray-700 text-lg">会员登录</h2>
         <div>
-          <hdInput/>
-          <hdInput/>
+          <Field
+           name="account"
+          placeholder="情输入邮箱或手机号"
+          class="h-input"
+          :validate-on-input="true"
+          />
+          <div v-if="errors.account" class="hd-error">情输入邮箱或手机号</div>
+          <!-- <ErrorMessage name="account"  as="div" class="hd-error"/> -->
+          <Field
+           name="password"
+          type="password"
+          class="h-input"
+          :validate-on-input="true"
+          />
+         
+          <ErrorMessage name="password"  as="div"  class="hd-error"/>
+          
+          <!-- <hdInput/> -->
+          <!-- <hdInput/> -->
         </div>
          <hdButton/>
         <div class="flex space-x-4 justify-center mt-3">
@@ -33,20 +54,42 @@
         />
       </div>
     </div>
-  </div>
+  </Form>
 </template>
 
 <script setup lang="ts">
+import v from "@/plugins/validate"
+
 import hdInput from "@/components/from/hdInput.vue";
 import hdButton from "@/components/from/hdButton.vue";
 import hdLink from "@/components/from/hdLink.vue"
+import { email, required } from "@vee-validate/rules";
+
+const {Field,Form,ErrorMessage} =v
 components: {
   hdInput
   hdButton
   hdLink
 }
+const onSubmit=(valuse)=>{
+  console.log(valuse);
+  
+}
+const schema={
+  account:{required:true,regex:/.+@.|\d{11}/i},
+  password:{required:true,min:3},
+
+}
 </script>
 
 <style scoped>
-
+.h-input {
+  @apply border rounded-sm 
+  outline-none w-full
+   py-1 px-4 border-gray-200 
+   placeholder:text-sm focus:ring-2 ring-offset-2 ring-violet-600 duration-300 focus:border-white mt-5;
+}
+.hd-error{
+  @apply rounded-md bg-pink-500 text-white text-sm px-2 mt-2
+}
 </style>
