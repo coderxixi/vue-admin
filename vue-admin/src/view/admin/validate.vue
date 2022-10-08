@@ -14,12 +14,12 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import {defineRule,ErrorMessage,useField,configure, useForm} from "vee-validate";
-import { required, min, max, confirmed, email } from "@vee-validate/rules";
+import { defaultRules } from "@/plugins/validate";
 import { localize } from "@vee-validate/i18n";
 import zh_CN from "@vee-validate/i18n/dist/locale/zh_CN.json";
 import * as yup from 'yup'
-defineRule('email',email);
-defineRule('required',required);
+// defaultRules('email');
+// defaultRules('required');
 configure(({
 
   generateMessage:localize('zh_CN',zh_CN)
