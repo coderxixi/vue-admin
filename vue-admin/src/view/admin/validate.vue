@@ -17,10 +17,11 @@ import {defineRule,ErrorMessage,useField,configure, useForm} from "vee-validate"
 import { required, min, max, confirmed, email } from "@vee-validate/rules";
 import { localize } from "@vee-validate/i18n";
 import zh_CN from "@vee-validate/i18n/dist/locale/zh_CN.json";
+import * as yup from 'yup'
 defineRule('email',email);
 defineRule('required',required);
 configure(({
-  
+
   generateMessage:localize('zh_CN',zh_CN)
 }))
 const {handleSubmit,errors}=useForm({
@@ -29,7 +30,7 @@ const {handleSubmit,errors}=useForm({
     password:'123'
   },
   validationSchema:{
-    username:{required:true,email:true},
+    username: yup.string().required("用户名不能为空").email("邮箱格式错误"),  // {required:true,email:true},
     password:{required:true}
 
   }
