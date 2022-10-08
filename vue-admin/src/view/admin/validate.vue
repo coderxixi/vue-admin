@@ -20,6 +20,7 @@ import zh_CN from "@vee-validate/i18n/dist/locale/zh_CN.json";
 defineRule('email',email);
 defineRule('required',required);
 configure(({
+  
   generateMessage:localize('zh_CN',zh_CN)
 }))
 const {handleSubmit,errors}=useForm({
