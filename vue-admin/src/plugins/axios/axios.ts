@@ -1,12 +1,12 @@
-// // import { CacheEnum } from '@/enum/CacheEnum'
-// // import { HttpEnum } from '@/enum/httpEnum'
-// // import { RouteEnum } from '@/enum/RouteEnum'
-// // import router from '@/router/register'
-// // import errorStore from '@/store/errorStore'
-// // import store from '@/utils/store'
+// import { HttpStatus } from '@/enum/HttpStatus'
+// import { RouteName } from '@/enum/RouteName'
+// import router from '@/router'
+// import errorStore from '@/store/errorStore'
 // import axios, { AxiosRequestConfig } from 'axios'
-// // import { ElLoading, ElMessage } from 'element-plus'
-
+// import { ElLoading, ElMessage } from 'element-plus'
+// import { CacheKey } from '@/enum/CacheKey'
+// import useStorage from '@/composables/system/useStorage'
+// const storage = useStorage()
 // export default class Axios {
 //   private instance
 //   private loading: any
@@ -15,7 +15,7 @@
 //     this.interceptors()
 //   }
 
-//   public async request<T, D = ResponseResult<T>>(config: AxiosRequestConfig) {
+//   public async request<T, D = ApiData<T>>(config: AxiosRequestConfig) {
 //     return new Promise(async (resolve, reject) => {
 //       try {
 //         const response = await this.instance.request<D>(config)
@@ -42,7 +42,7 @@
 //         errorStore().resetError()
 //         config.headers = {
 //           Accept: 'application/json',
-//           Authorization: `Bearer ${store.get(CacheEnum.TOKEN_NAME)}`,
+//           Authorization: `Bearer ${storage.get(CacheKey.TOKEN_NAME)}`,
 //         }
 //         return config
 //       },
@@ -73,20 +73,20 @@
 //         const { message } = data
 
 //         switch (status) {
-//           case HttpEnum.UNAUTHORIZED:
-//             store.remove(CacheEnum.TOKEN_NAME)
-//             router.push({ name: RouteEnum.LOGIN })
+//           case HttpStatus.UNAUTHORIZED:
+//             storage.remove(CacheKey.TOKEN_NAME)
+//             router.push({ name: RouteName.LOGIN })
 //             break
-//           case HttpEnum.BAD_REQUEST:
-//             errorStore().setErrors(error.response.data.errors)
+//           case HttpStatus.BAD_REQUEST:
+//             errorStore().setErrors(error.response.data.messages)
 //             break
-//           case HttpEnum.FORBIDDEN:
+//           case HttpStatus.FORBIDDEN:
 //             ElMessage({ type: 'error', message: message ?? '没有操作权限' })
 //             break
-//           case HttpEnum.NOT_FOUND:
-//             router.push({ name: RouteEnum.NOT_FOUND })
+//           case HttpStatus.NOT_FOUND:
+//             router.push({ name: RouteName.NOT_FOUND })
 //             break
-//           case HttpEnum.TOO_MANY_REQUESTS:
+//           case HttpStatus.TOO_MANY_REQUESTS:
 //             ElMessage({ type: 'error', message: message ?? '请示过于频繁，请稍候再试' })
 //             break
 //           default:

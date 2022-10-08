@@ -5,8 +5,8 @@ import router,{ setupRouter } from "@/router"
 import setupPlugins from '@/plugins'
 async function bootstrap(){
   const app = createApp(App)
-  setupRouter(app);
   setupPlugins(app)
+  setupRouter(app);
   await router.isReady()
   app.mount('#app')
 }

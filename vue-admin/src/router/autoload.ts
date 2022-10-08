@@ -14,7 +14,7 @@ function getRoutes(){
   
   return layoutRoutes
 }
-
+//获取子路由
 function getChildrenRoutes(layoutRoute:RouteRecordRaw){
   const routers=[] as RouteRecordRaw[]
      Object.entries(view).forEach(([file,module])=>{

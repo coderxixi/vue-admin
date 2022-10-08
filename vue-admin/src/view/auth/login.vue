@@ -15,10 +15,10 @@
       <div class="p-6">
         <h2 class="text-center text-gray-700 text-lg">会员登录</h2>
         <div>
-          <hdInput />
-          <hdInput />
+          <hdInput/>
+          <hdInput/>
         </div>
-       <hdButton/>
+         <hdButton/>
         <div class="flex space-x-4 justify-center mt-3">
           <hdLink>网站首页</hdLink>
           <hdLink>会员注册</hdLink>
@@ -37,9 +37,9 @@
 </template>
 
 <script setup lang="ts">
-import hdInput from "@/components/from/hd-input.vue";
-import hdButton from "@/components/from/hd-button.vue";
-import hdLink from "@/components/from/hd-link.vue"
+import hdInput from "@/components/from/hdInput.vue";
+import hdButton from "@/components/from/hdButton.vue";
+import hdLink from "@/components/from/hdLink.vue"
 components: {
   hdInput
   hdButton

@@ -6,7 +6,6 @@ const routers = [
     name:"home",
     component: () => import("@/view/home.vue"),
   },
-  
 ] as RouteRecordRaw[]
 
 export default routers
