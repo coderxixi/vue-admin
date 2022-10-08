@@ -23,11 +23,13 @@
            name="account"
           placeholder="情输入邮箱或手机号"
           class="h-input"
+          value="xixi@qq.com"
           :validate-on-input="true"
           />
           <div v-if="errors.account" class="hd-error">情输入邮箱或手机号</div>
           <!-- <ErrorMessage name="account"  as="div" class="hd-error"/> -->
           <Field
+          value="88888"
            name="password"
           type="password"
           class="h-input"
@@ -50,7 +52,7 @@
         <img
           src="@/assets/img/icon.png"
           alt=""
-          class="h-80 w-full object-cover"
+          class="h-[380px] w-full object-cover"
         />
       </div>
     </div>
@@ -58,12 +60,14 @@
 </template>
 
 <script setup lang="ts">
+import userApi from "@/api/userApi"
 import v from "@/plugins/validate"
-
+import {store} from "@/utils/"
 import hdInput from "@/components/from/hdInput.vue";
 import hdButton from "@/components/from/hdButton.vue";
 import hdLink from "@/components/from/hdLink.vue"
 import { email, required } from "@vee-validate/rules";
+import { log } from "console";
 
 const {Field,Form,ErrorMessage} =v
 components: {
@@ -71,8 +75,12 @@ components: {
   hdButton
   hdLink
 }
-const onSubmit=(valuse)=>{
-  console.log(valuse);
+const onSubmit=async (valuse)=>{
+const {result:{token}}=  await userApi.login(valuse);
+
+store.set('token',{
+  expire:100,token
+})
   
 }
 const schema={
