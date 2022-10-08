@@ -1,48 +1,38 @@
 <template>
   <div>
     <form @submit="onSubmit">
+    <Form @submit="onSubmit">
       <input type="text" v-model="usernameValue"/>
        <p v-if="errors.username">{{errors.username}}</p>
        <input type="text" v-model="passwordValue"/>
        <p v-if="errors.password">{{errors.password}}</p>
        <button type="submit">提交</button>
     </form>
+    </Form>
   
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import {defineRule,ErrorMessage,useField,configure, useForm} from "vee-validate";
-import { defaultRules } from "@/plugins/validate";
-import { localize } from "@vee-validate/i18n";
-import zh_CN from "@vee-validate/i18n/dist/locale/zh_CN.json";
-import * as yup from 'yup'
-// defaultRules('email');
-// defaultRules('required');
-configure(({
-
-  generateMessage:localize('zh_CN',zh_CN)
-}))
-const {handleSubmit,errors}=useForm({
+import v from "@/plugins/validate"
+const {handleSubmit,errors}=v.useForm({
   initialValues:{
     username:'xixi',
     password:'123'
   },
   validationSchema:{
-    username: yup.string().required("用户名不能为空").email("邮箱格式错误"),  // {required:true,email:true},
+    username: v.yup.string().required("用户名不能为空").email("邮箱格式错误"),  // {required:true,email:true},
     password:{required:true}
 
   }
 })
-const {value:usernameValue}=useField('username',{},{label:'用户名'});
-const {value:passwordValue}=useField('password',{},{label:'密码'});
+const {value:usernameValue}=v.useField('username',{},{label:'用户名'});
+const {value:passwordValue}=v.useField('password',{},{label:'密码'});
 const onSubmit=handleSubmit((value:any)=>{
   console.log('val',value);
   
 })
 </script>
-
 <style scoped lang="scss">
   div {
   @apply flex w-screen h-screen justify-center items-center bg-slate-500;
