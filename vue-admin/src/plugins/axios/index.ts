@@ -1,8 +1,8 @@
-import Axios from './Axios'
+// import Axios from './Axios'
 
-const http = new Axios({
-  baseURL: '/api',
-  timeout: 10000,
-})
-export default () => {}
-export { http }
+// const http = new Axios({
+//   baseURL: '/api',
+//   timeout: 10000,
+// })
+// export default () => {}
+// export { http }

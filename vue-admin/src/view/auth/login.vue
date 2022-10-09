@@ -60,7 +60,7 @@
 </template>
 
 <script setup lang="ts">
-import userApi from "@/api/userApi"
+// import userApi from "@/api/userApi"
 import v from "@/plugins/validate"
 import {store} from "@/utils/"
 import hdInput from "@/components/from/hdInput.vue";
@@ -75,12 +75,12 @@ components: {
   hdButton
   hdLink
 }
-const onSubmit=async (valuse)=>{
-const {result:{token}}=  await userApi.login(valuse);
+const onSubmit=async ()=>{
+// const {result:{token}}=  await userApi.login(valuse);
 
-store.set('token',{
-  expire:100,token
-})
+// store.set('token',{
+//   expire:100,'adfasdf',
+// })
   
 }
 const schema={
@@ -89,7 +89,14 @@ const schema={
 
 }
 </script>
+<script lang="ts">
+ export default {
+    route:{
+      meta:{"name":"login"}
+    }
+ }
 
+</script>
 <style scoped>
 .h-input {
   @apply border rounded-sm 
