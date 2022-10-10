@@ -1,5 +1,6 @@
 import { App } from "vue";
 import { setupTailwindcss } from "./tailwindcss";
+import setupElementui from  "./elementui"
 import _ from "lodash"
 //自动注册全局组件
 function autoRegisterComponent(app: App) {
@@ -15,5 +16,5 @@ function autoRegisterComponent(app: App) {
 export default function setupPlugins(app: App) {
   autoRegisterComponent(app)
   setupTailwindcss()
- 
+  setupElementui(app)
 }

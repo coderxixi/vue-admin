@@ -26,7 +26,7 @@ import { ref } from "vue";
 interface IMenus {
   name: string;
   icon: string;
-  children: [name: string];
+  children: [name: string,active:boolean];
 }
 let menus = ref([
   {
@@ -43,6 +43,20 @@ let menus = ref([
       },
       {
         name: "402错误",
+        active: false,
+      },
+    ],
+  },
+  {
+    name: "编辑器",
+    icon: "fa-algolia",
+    children: [
+      {
+        name: "富文本编辑器",
+        active: false,
+      },
+      {
+        name: "Mardown编辑器",
         active: false,
       },
     ],

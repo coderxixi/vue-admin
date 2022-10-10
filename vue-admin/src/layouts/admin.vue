@@ -1,8 +1,9 @@
 <template>
   <div class="admin h-screen w-screen flex">
     <div class="menu w-[200px] bg-gray-800 p-4">
-      <div class="logo text-gray-300 flex items-center">
-        <i class="fab fa-adn text-fuchsia-400 mr-2 text-[35px]"></i>
+      <div class="logo text-gray-300 flex items-center justify-center">
+        <img class="text-fuchsia-400 mr-2 w-12 rounded-3xl " src="../assets/img/avar.jpeg"/>
+        <!-- <i class="fab fa-adn text-fuchsia-400 mr-2 text-[35px]"></i> -->
         后台模版
       </div>
       <!-- 菜单 -->
@@ -13,6 +14,7 @@
     <div class="content flex-1 bg-gray-200">
       <!-- 导航栏 -->
       <router-view />
+      <!-- 历史菜单 -->
     </div>
   </div>
 </template>
