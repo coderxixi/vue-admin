@@ -1,6 +1,7 @@
 import 'vue-router'
 declare module 'vue-router'{
   interface RouterMate {
-    auth?:Boolean
+    auth?:Boolean,
+    guest?:Boolean
   }
 }

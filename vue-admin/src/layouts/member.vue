@@ -1,12 +1,21 @@
 <template>
   <div>
-    <h2>adfdsafasd</h2>
-    <router-view />
+
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  setup () {
+    
+
+    return {}
+  }
+})
 </script>
 
 <style scoped>
+
 </style>
