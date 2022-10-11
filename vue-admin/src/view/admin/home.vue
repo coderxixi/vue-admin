@@ -21,9 +21,22 @@
       </section>
     </el-card>
   </div>
-  <div class=" bg-white p-3 mt-5 grid md:grid-flow-col gap-3">
-      <div id="echart" style="height:400px;" class="w-full md:w-[600px]"></div>
-      <div id="echart1" style="height:400px;" class="w-full md:w-[600px]"></div>
+  <div class="  p-3 mt-5 grid md:grid-cols-2 gap-3">
+    <el-card shadow="always" :body-style="{ padding: '20px' }">
+      <div slot="header">
+        <span>用户统计</span>
+      </div>
+      <div id="echart" style="height:400px;" class="w-full h-[80px] md:w-[600px]"></div>
+    </el-card>
+    <el-card shadow="always" :body-style="{ padding: '20px' }">
+      <div slot="header">
+        <span>销售额</span>
+      </div>
+      <div id="echart1" style="height:400px;" class="w-full h-[80px] md:w-[600px]"></div>
+    </el-card>
+    
+     
+     
   </div>
 </template>
 
