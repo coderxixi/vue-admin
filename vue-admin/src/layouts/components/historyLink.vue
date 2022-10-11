@@ -18,6 +18,18 @@ const links=ref<{title:string}[]>([
   {
     title:'富文本编辑器'
   },
+  {
+    title:'用户管理'
+  },
+  {
+    title:'404错误'
+  },
+  {
+    title:'富文本编辑器'
+  },
+  {
+    title:'用户管理'
+  },
 ]);
 </script>
 
