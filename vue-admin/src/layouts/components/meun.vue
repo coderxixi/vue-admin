@@ -79,13 +79,15 @@ const clickDd = (val: any) => {
 };
 const resetMuen = () => {
   menus.value.forEach((item) => {
-    item.children.forEach((val) => {
-      val.active = false;
-    });
+   item.active=false
+   item.children?.forEach((item)=>{
+     item.active=false
+   })
   });
 };
 
-const hadle = (pmenu: IMenus, cmenu?: IMenus) => {
+const hadle = (pmenu: IMenu, cmenu?: IMenu) => {
+  resetMuen();
   pmenu.active = true;
 };
 </script>
