@@ -14,13 +14,16 @@
         <meun />
       </div>
     </div>
-    <div class="content flex-1 bg-gray-200">
+    <div class="content flex-1 bg-gray-100">
       <!-- 导航栏 -->
       <NavBar />
       <!-- 历史菜单 -->
       <historyLink />
       <!-- 路由页面 -->
-      <router-view />
+      <div class=" m-3 p-5 bg-white">
+        <router-view />
+      </div>
+     
     </div>
   </div>
 </template>
