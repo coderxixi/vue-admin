@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-flow-col gap-3">
+  <div class="grid md:grid-flow-col gap-3">
     <el-card
       shadow="hover"
       :body-style="{ padding: '20px' }"
@@ -21,11 +21,9 @@
       </section>
     </el-card>
   </div>
-  <div class=" bg-white p-3 mt-5">
-    <section class="grid grid-flow-col gap-3">
-      <div id="echart" style="height:400px;"></div>
-      <div id="echart1" style="height:400px;"></div>
-    </section>
+  <div class=" bg-white p-3 mt-5 grid md:grid-flow-col gap-3">
+      <div id="echart" style="height:400px;" class="w-full md:w-[600px]"></div>
+      <div id="echart1" style="height:400px;" class="w-full md:w-[600px]"></div>
   </div>
 </template>
 

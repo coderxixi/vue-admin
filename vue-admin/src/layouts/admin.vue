@@ -1,6 +1,6 @@
 <template>
-  <div class="admin h-screen w-screen flex">
-    <div class="menu w-[200px] bg-gray-800 p-4">
+  <div class="admin h-min-screen w-screen flex">
+    <div class="menu w-[200px] bg-gray-800 p-4 hidden md:block">
       <div class="logo text-gray-300 flex items-center justify-center">
         <img
           class="text-fuchsia-400 mr-2 w-12 rounded-3xl"
@@ -18,7 +18,7 @@
       <!-- 导航栏 -->
       <NavBar />
       <!-- 历史菜单 -->
-      <historyLink />
+      <historyLink  class="hidden md:block"/>
       <!-- 路由页面 -->
       <div class="m-5">
         <router-view />
