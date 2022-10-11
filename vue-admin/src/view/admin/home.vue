@@ -22,9 +22,9 @@
     </el-card>
   </div>
   <div class=" bg-white p-3 mt-5">
-    <section class="grid grid-flow-col">
-      <div id="echart" style="width:600px;height:400px;"></div>
-      <div id="echart1" style="width:600px;height:400px;"></div>
+    <section class="grid grid-flow-col gap-3">
+      <div id="echart" style="height:400px;"></div>
+      <div id="echart1" style="height:400px;"></div>
     </section>
   </div>
 </template>

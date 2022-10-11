@@ -1,7 +1,7 @@
 
 
 <template>
-  <div class="m-3 grid grid-flow-col gap-3 justify-start">
+  <div class="m-5 grid grid-flow-col gap-3 justify-start">
     <a
       class="text-sm text-gray-600 bg-white rounded-md py-2 px-3"
       href="#"

@@ -9,7 +9,7 @@
             {{ item.title }}
             </section>
         </div>
-        <i class="fas fa-angle-down"></i>
+        <i class="fas fa-angle-down  duration-300 " :class="{'rotate-180':item.active}"></i>
       </dt>
       <dd v-show="item.active" @click="clickDd(val)" v-for="val of item.children" :key="val.title">
         <div
@@ -103,7 +103,9 @@ dl {
   }
   dd {
     div {
-      @apply opacity-80 text-xs py-3 pl-4 my-2 text-white rounded-md cursor-pointer duration-300 hover:bg-violet-500 hover:opacity-100 bg-gray-700;
+      @apply opacity-80 text-xs py-3 pl-4 my-2 text-white rounded-md cursor-pointer duration-300 hover:bg-violet-500 hover:opacity-100 bg-gray-700
+      bg-gray-700;
+      
       &.active {
         @apply bg-violet-700 opacity-100;
       }

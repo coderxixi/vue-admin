@@ -20,7 +20,7 @@
       <!-- 历史菜单 -->
       <historyLink />
       <!-- 路由页面 -->
-      <div class=" m-3 p-5 bg-white">
+      <div class="m-5">
         <router-view />
       </div>
      
