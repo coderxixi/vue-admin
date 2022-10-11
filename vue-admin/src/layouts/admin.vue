@@ -2,31 +2,40 @@
   <div class="admin h-screen w-screen flex">
     <div class="menu w-[200px] bg-gray-800 p-4">
       <div class="logo text-gray-300 flex items-center justify-center">
-        <img class="text-fuchsia-400 mr-2 w-12 rounded-3xl " src="../assets/img/avar.jpeg"/>
+        <img
+          class="text-fuchsia-400 mr-2 w-12 rounded-3xl"
+          src="../assets/img/avar.jpeg"
+        />
         <!-- <i class="fab fa-adn text-fuchsia-400 mr-2 text-[35px]"></i> -->
         后台模版
       </div>
       <!-- 菜单 -->
       <div class="left-container">
-        <Menu/>
+        <meun />
       </div>
     </div>
     <div class="content flex-1 bg-gray-200">
       <!-- 导航栏 -->
-      <router-view />
+      <NavBar />
       <!-- 历史菜单 -->
+      <historyLink />
+      <!-- 路由页面 -->
+      <router-view />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import Menu from "./components/meun.vue"
-components:{
-  Menu
+import meun from "./components/meun.vue";
+import NavBar from "./components/navBar.vue";
+import historyLink from "./components/historyLink.vue";
+components: {
+  meun;
+  NavBar;
+  historyLink;
 }
 </script>
 <script lang="ts">
-
 export default {
   route: {
     meta: {
@@ -43,7 +52,6 @@ export default {
     .logo {
       @apply text-gray-300 flex items-center p-4;
     }
-   
   }
 }
 </style>
