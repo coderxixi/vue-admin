@@ -9,6 +9,7 @@ declare module 'vue-router'{
     title?:string,
     icon?:string,
     isClick?:boolean,
+    //访问权限
     permissions:string[]
   }
 }

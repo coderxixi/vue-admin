@@ -79,9 +79,9 @@ components: {
 }
 const router = useRouter();
 const onSubmit = async (valuse) => {
-  // const {result:{token}}=  await userApi.login(valuse);l
-  console.log("weqrqwr", router);
-
+  const {
+    result: { token },
+  } = await userApi.login(valuse);
   store.set("token", {
     expire: 100,
     name: "adfasdf",
