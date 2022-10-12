@@ -19,5 +19,7 @@ export  async function login(valuse){
     expire: 130000,
     token,
   });
-  router.push({ name: "home" });
+
+  const routeName=useStorage().get(CacheKey.REDIRECT_ROUTE_NAME)??'home'
+  router.push({ name: routeName });
 }

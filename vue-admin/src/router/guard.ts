@@ -14,31 +14,36 @@ class Guard {
   }
   //路由检测
   private isLogin(route: RouteLocationNormalized) {
-    return Boolean(!route.meta.auth || (route.meta.auth && !this.token()))
+
+    const state = Boolean(!route.meta.auth || (route.meta.auth && !this.token()))
+    if (state === false) {
+      storage.set(CacheKey.HISTORY_MENU,route.name)
+    }
+    return state
   }
   //游客处理
   private isGuest(route: RouteLocationNormalized) {
     return Boolean(!route.meta.guest || (route.meta.guest && this.token()))
   }
-  private async beforEach(to:RouteLocationNormalized, from:RouteLocationNormalized){
-    console.log('totot',this.isGuest(to),this.isLogin(to),this.token());
-    
+  private async beforEach(to: RouteLocationNormalized, from: RouteLocationNormalized) {
+    console.log('totot', this.isGuest(to), this.isLogin(to), this.token());
+
     // 登录处理
     if (this.isLogin(to) === false) return { name: 'auth.login' }
     if (this.isGuest(to) === false) return { name: 'home' }
     await this.getuserInfo()
-   
+
     //权限处理
   }
   //token 
-  private token():string|null{
+  private token(): string | null {
     return storage.get(CacheKey.TOKEN_NAME).token
   }
   //获取用户
-  private getuserInfo(){
-   
-    if(this.token()){
-    return user().getUserInfo();
+  private getuserInfo() {
+
+    if (this.token()) {
+      return user().getUserInfo();
     }
   }
 }
