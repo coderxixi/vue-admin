@@ -30,6 +30,16 @@ export const routers = {
         show: true
       },
       component: () => import('@/view/errpage/403.vue'),
+    },
+    {
+      name: 'errpage.402',
+      path: '/errpage/402',
+      meta: {
+        title: '402页面',
+        icon: 'fab fa-airbnb',
+        show: false
+      },
+      component: () => import('@/view/errpage/402.vue'),
     }
   ]
 } as RouteRecordRaw
