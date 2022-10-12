@@ -10,6 +10,8 @@ class Guard {
   public run() {
     //路由拦截
     this.router.beforeEach((to, from) => {
+      console.log('to',to);
+      
       let token = store.get('token')?.token
       // 登录处理
       if (this.isLogin(to, token) == false) return { name: 'login' }
