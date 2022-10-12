@@ -13,7 +13,12 @@ const routers = [
     meta:{
       guest:true
     }
-  }
+  },
+  {
+    path: '/:any(.*)',
+    name:"notFound",
+    component: () => import("@/view/errpage/404.vue"),
+  },
 ] as RouteRecordRaw[]
 
 export default routers

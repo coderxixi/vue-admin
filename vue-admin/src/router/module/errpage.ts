@@ -20,6 +20,7 @@ export const routers = {
         icon: 'fab fa-airbnb',
         show: true,
         isClick:true,
+        auth:true
       },
       component: () => import('@/view/errpage/404.vue'),
     },
