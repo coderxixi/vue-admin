@@ -31,7 +31,7 @@ export const routers = {
         title: '403页面',
         icon: 'fab fa-airbnb',
         show: true,
-        isClick:false,
+        isClick:true,
       },
       component: () => import('@/view/errpage/403.vue'),
     },

@@ -47,7 +47,7 @@
 
 <script setup lang="ts">
 import {loginOut} from "@/utils/index"
-import {user} from "@/store/user"
+import user from "@/store/user"
 const userStore =user();
 //退出登录
 const loginout=()=>{

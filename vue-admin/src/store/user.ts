@@ -2,7 +2,7 @@ import userApi, { User } from '@/api/userApi'
 import { defineStore } from 'pinia'
 
 
-export const user = defineStore('user', {
+export default defineStore('user', {
   // 推荐使用 完整类型推断的箭头函数
   state: () => {
     return {

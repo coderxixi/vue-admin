@@ -1,8 +1,9 @@
-import { store } from "@/utils";
-import { RouteLocationNormalized, Router } from "vue-router"
-import{user} from "@/store/user"
-import { CacheKey } from "@/enum/CacheKey";
+import useStorage from '@/composables/system/useStorage'
 
+import { RouteLocationNormalized, Router } from "vue-router"
+import user from "@/store/user"
+import { CacheKey } from "@/enum/CacheKey";
+const storage = useStorage()
 class Guard {
   constructor(protected router: Router) {
 
@@ -20,23 +21,24 @@ class Guard {
     return Boolean(!route.meta.guest || (route.meta.guest && this.token()))
   }
   private async beforEach(to:RouteLocationNormalized, from:RouteLocationNormalized){
+    console.log('totot',this.isGuest(to),this.isLogin(to),this.token());
+    
     // 登录处理
-    if (this.isLogin(to) == false) return { name: 'auth.login' }
-    if (this.isGuest(to) == false) return { name: 'home' }
+    if (this.isLogin(to) === false) return { name: 'auth.login' }
+    if (this.isGuest(to) === false) return { name: 'home' }
     await this.getuserInfo()
    
     //权限处理
   }
   //token 
   private token():string|null{
-    
-    return store.get(CacheKey.TOKEN_NAME)?.token
+    return storage.get(CacheKey.TOKEN_NAME).token
   }
   //获取用户
   private getuserInfo(){
    
     if(this.token()){
-    return  user().getUserInfo();
+    return user().getUserInfo();
     }
   }
 }

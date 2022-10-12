@@ -11,7 +11,7 @@ const routers = [
     name:"auth.login",
     component: () => import("@/view/auth/login.vue"),
     meta:{
-      guest:true
+      guest:false
     }
   },
   {

@@ -17,7 +17,8 @@ export  const routers={
         meta: {
           title: 'markdown编辑',
           icon: 'fab fa-airbnb',
-          show: true
+          show: true,
+          auth:true
         },
         component: () => import('@/view/editor/markdown.vue'),
        },
