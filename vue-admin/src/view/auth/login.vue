@@ -63,31 +63,18 @@
 <script setup lang="ts">
 // import userApi from "@/api/userApi"
 import v from "@/plugins/validate";
-import { store } from "@/utils/";
+import { store ,login} from "@/utils/index";
 import hdInput from "@/components/from/hdInput.vue";
 import hdButton from "@/components/from/hdButton.vue";
 import hdLink from "@/components/from/hdLink.vue";
-
-import userApi from "@/api/userApi";
-import { useRouter } from "vue-router";
-import { log } from 'console';
-
 const { Field, Form, ErrorMessage } = v;
 components: {
   hdInput;
   hdButton;
   hdLink;
 }
-const router = useRouter();
 const onSubmit = async (valuse) => {
-  const {
-    result: { token },
-  } = await userApi.login(valuse);
-  store.set("token", {
-    expire: 130000,
-    token,
-  });
-  router.push({ name: "home" });
+  login(valuse)
 };
 const schema = {
   account: { required: true, regex: /.+@.|\d{11}/i },

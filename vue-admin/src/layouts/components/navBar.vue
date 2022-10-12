@@ -35,7 +35,7 @@
           <i class="fab fa-blogger"></i>
           <span class="text-sm text-gray-600 ml-2">会员中心</span>
         </div>
-        <div class="flex  items-center  py-2  cursor-pointer" >
+        <div class="flex  items-center  py-2  cursor-pointer" @click="loginout">
           <i class="fab fa-sign-out-alt"></i>
           <span class="text-sm text-gray-600 ml-2">退出登录</span>
         </div>
@@ -46,9 +46,13 @@
 </template>
 
 <script setup lang="ts">
+import {loginOut} from "@/utils/index"
 import {user} from "@/store/user"
 const userStore =user();
-
+//退出登录
+const loginout=()=>{
+  loginOut()
+}
 </script>
 
 <style scoped lang="scss">

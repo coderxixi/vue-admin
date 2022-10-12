@@ -1,8 +1,7 @@
 import { store } from "@/utils";
 import { RouteLocationNormalized, Router } from "vue-router"
-
 import{user} from "@/store/user"
-import { resolve } from "path";
+import { CacheKey } from "@/enum/CacheKey";
 
 class Guard {
   constructor(protected router: Router) {
@@ -30,9 +29,8 @@ class Guard {
   }
   //token 
   private token():string|null{
-    console.log("store.get('token')?.token",store.get('token')?.token);
     
-    return store.get('token')?.token
+    return store.get(CacheKey.TOKEN_NAME)?.token
   }
   //获取用户
   private getuserInfo(){
