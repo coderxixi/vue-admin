@@ -1,5 +1,5 @@
 <template>
-  <div class="admin h-min-screen w-screen flex">
+  <div class="admin min-h-screen w-screen flex">
     <div class="menu w-[200px] bg-gray-800 p-4 hidden md:block">
       <div class="logo text-gray-300 flex items-center justify-center">
         <img
