@@ -24,7 +24,9 @@
 </template>
 
 <script setup lang="ts">
+import {router } from "@/store/router"
 import { ref } from "vue";
+const routerStore=router()
 interface IMenuItem {
   title: string;
   icon?: string;
@@ -91,7 +93,6 @@ const hadle = (pmenu: IMenu, cmenu?: IMenu) => {
   pmenu.active = true;
 };
 </script>
-
 <style scoped lang="scss">
 dl {
   @apply text-gray-300 text-sm relative p-4;
