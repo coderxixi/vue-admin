@@ -7,6 +7,7 @@ declare module 'vue-router'{
     show?:boolean
     //菜单标题
     title?:string,
-    icon:string
+    icon?:string,
+    isClick?:boolean
   }
 }

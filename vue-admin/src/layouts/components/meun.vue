@@ -1,22 +1,33 @@
 <template>
   <div>
-    <dl class="text-gray-300 text-sm" v-for="(item ,index) of menus" :key="index">
-      <dt class="flex justify-between" @click="hadle(item)">
+    <dl
+      class="text-gray-300 text-sm"
+      v-for="(route, index) of routerStore.router"
+      :key="index"
+    >
+      <dt class="flex justify-between" @click="hadle(route)">
         <div class="flex items-center justify-between">
-         
           <section>
-            <i class="fab mr-3 text-[18px]" :class="item.icon"></i>
-            {{ item.title }}
-            </section>
+            <i class="fab mr-3 text-[18px]" :class="route.meta.icon"></i>
+            {{ route.meta.title }}
+          </section>
         </div>
-        <i class="fas fa-angle-down  duration-300 " :class="{'rotate-180':item.active}"></i>
+        <i
+          class="fas fa-angle-down duration-300"
+          :class="{ 'rotate-180': route.meta.isClick }"
+        ></i>
       </dt>
-      <dd v-show="item.active" @click="clickDd(val)" v-for="val of item.children" :key="val.title">
+      <dd
+        v-show="route.meta?.isClick"
+        @click="hadle(route,childrenRoute)"
+        v-for="(childrenRoute, index) of route.children"
+        :key="index"
+      >
         <div
-          :class="{ active: val.active }"
+          :class="{ active: childrenRoute.meta?.isClick }"
           class="bg-zinc-600 mt-2 py-2 rounded-md text-white text-center"
         >
-          {{ val.title }}
+          {{ childrenRoute.meta?.title }}
         </div>
       </dd>
     </dl>
@@ -24,73 +35,31 @@
 </template>
 
 <script setup lang="ts">
-import {router } from "@/store/router"
+import { router } from "@/store/router";
 import { ref } from "vue";
-const routerStore=router()
-interface IMenuItem {
-  title: string;
-  icon?: string;
-  active?:boolean
-}
+import { RouteRecordNormalized, RouteRecordRaw } from "vue-router";
 
-interface IMenu extends IMenuItem {
-  // active: boolean;
-  children?: IMenuItem[];
-}
-let menus = ref<IMenu[]>([
-  {
-    title: "错误页面",
-    icon: "fa-algolia",
-    active:true,
-    children: [
-      {
-        title: "404页面",
-        active:true
-        
-      },
-      {
-        title: "403页面",
-        
-      },
-      {
-        title: "402页面",
-        
-      },
-    ],
-  },
-  {
-    title: "编辑器",
-    icon: "fa-algolia",
-    children: [
-      {
-        title: "mardowm编辑器",
-        
-      },
-      {
-        title: "富文本编辑器",
-        
-      },
-     
-    ],
-  },
-]);
 
-const clickDd = (val: any) => {
-  resetMuen();
-  val.active = true;
-};
+const routerStore = router();
+console.log("routerStore", routerStore.router);
+
 const resetMuen = () => {
-  menus.value.forEach((item) => {
-   item.active=false
-   item.children?.forEach((item)=>{
-     item.active=false
-   })
+  routerStore.router.forEach((item) => {
+    item.meta.isClick = false;
+    item.children?.forEach((item) => {
+      if (item.meta) {
+        item.meta.isClick = false;
+      }
+    });
   });
 };
 
-const hadle = (pmenu: IMenu, cmenu?: IMenu) => {
+const hadle = (pmenu: RouteRecordNormalized, cmenu?: RouteRecordRaw) => {
   resetMuen();
-  pmenu.active = true;
+  pmenu.meta.isClick = true;
+  if (cmenu && cmenu.meta) {
+    cmenu.meta.isClick = true;
+  }
 };
 </script>
 <style scoped lang="scss">
@@ -106,7 +75,7 @@ dl {
     div {
       @apply opacity-80 text-xs py-3 pl-4 my-2 text-white rounded-md cursor-pointer duration-300 hover:bg-violet-500 hover:opacity-100 bg-gray-700
       bg-gray-700;
-      
+
       &.active {
         @apply bg-violet-700 opacity-100;
       }

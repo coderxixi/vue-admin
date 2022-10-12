@@ -23,6 +23,8 @@ function getRouters() {
     route.children= route.children.filter((route)=>{
       return route.meta?.show
     })
+    
     return route
   })
+  return routers
 }

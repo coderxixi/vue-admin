@@ -17,7 +17,8 @@ export const routers = {
       meta: {
         title: '404页面',
         icon: 'fab fa-airbnb',
-        show: true
+        show: true,
+        isClick:true,
       },
       component: () => import('@/view/errpage/404.vue'),
     },
@@ -27,7 +28,8 @@ export const routers = {
       meta: {
         title: '403页面',
         icon: 'fab fa-airbnb',
-        show: true
+        show: true,
+        isClick:false,
       },
       component: () => import('@/view/errpage/403.vue'),
     },
@@ -37,7 +39,9 @@ export const routers = {
       meta: {
         title: '402页面',
         icon: 'fab fa-airbnb',
-        show: false
+        show: false,
+        isClick:false,
+        
       },
       component: () => import('@/view/errpage/402.vue'),
     }
