@@ -6,7 +6,8 @@ export  const routers={
      meta: {
       title: '编辑页面',
       icon: 'fab fa-algolia',
-      show: true
+      show: true,
+      auth:true
     },
       component: () => import('@/layouts/admin.vue'),
     children:[

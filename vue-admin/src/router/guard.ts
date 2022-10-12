@@ -1,7 +1,8 @@
 import { store } from "@/utils";
 import { RouteLocationNormalized, Router } from "vue-router"
 
-
+import{user} from "@/store/user"
+import { resolve } from "path";
 
 class Guard {
   constructor(protected router: Router) {
@@ -19,19 +20,26 @@ class Guard {
   private isGuest(route: RouteLocationNormalized) {
     return Boolean(!route.meta.guest || (route.meta.guest && this.token()))
   }
-  private beforEach(to:RouteLocationNormalized, from:RouteLocationNormalized){
-    
+  private async beforEach(to:RouteLocationNormalized, from:RouteLocationNormalized){
     // 登录处理
-    console.log("this.isLogin(to)",this.isLogin(to),this.isGuest(to),to);
-    
     if (this.isLogin(to) == false) return { name: 'auth.login' }
     if (this.isGuest(to) == false) return { name: 'home' }
+    await this.getuserInfo()
+   
     //权限处理
   }
   //token 
   private token():string|null{
+    console.log("store.get('token')?.token",store.get('token')?.token);
     
-    return store.get('token')?.token.token
+    return store.get('token')?.token
+  }
+  //获取用户
+  private getuserInfo(){
+   
+    if(this.token()){
+    return  user().getUserInfo();
+    }
   }
 }
 

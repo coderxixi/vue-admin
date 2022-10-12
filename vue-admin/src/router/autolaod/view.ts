@@ -1,4 +1,4 @@
-import { env } from "process";
+
 import { RouteRecordRaw } from "vue-router";
 
 const layouts = import.meta.glob("../layouts/*.vue");

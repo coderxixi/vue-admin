@@ -11,7 +11,7 @@
         class="fas cursor-pointer fa-expand hidden md:flex mr-3 text-gray-600"
       />
       <img class="w-[30px] rounded-3xl" src="../../assets/img/avar.jpeg" />
-      <span class="ml-3 text-sm text-gray-600">嘻嘻</span>
+      <span class="ml-3 text-sm text-gray-600">{{userStore.info?.name}}</span>
       <!-- 弹出菜单 -->
       <section
         class="
@@ -35,9 +35,9 @@
           <i class="fab fa-blogger"></i>
           <span class="text-sm text-gray-600 ml-2">会员中心</span>
         </div>
-        <div class="flex  items-center  py-2  cursor-pointer">
-          <i class="fab fa-blogger"></i>
-          <span class="text-sm text-gray-600 ml-2">用户管理</span>
+        <div class="flex  items-center  py-2  cursor-pointer" >
+          <i class="fab fa-sign-out-alt"></i>
+          <span class="text-sm text-gray-600 ml-2">退出登录</span>
         </div>
       
       </section>
@@ -46,9 +46,9 @@
 </template>
 
 <script setup lang="ts">
-import { MenuFoldOne, MenuUnfoldOne } from "@icon-park/vue-next";
-import { ref } from "vue";
-let show = ref(true);
+import {user} from "@/store/user"
+const userStore =user();
+
 </script>
 
 <style scoped lang="scss">

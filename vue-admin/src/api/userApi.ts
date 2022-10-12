@@ -1,8 +1,8 @@
 import {http} from "@/plugins/axios";
 export interface User{
-  name:string,
-  age:number,
-  avatar:string
+    name:string,
+    age:number,
+    avatar:string
 }
 function info(){
   return http.request<User>({

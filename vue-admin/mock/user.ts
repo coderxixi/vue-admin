@@ -2,13 +2,17 @@ import { Random } from "mockjs";
 import { MockMethod } from "vite-plugin-mock";
 export default [
   {
-    url:'/api/get',
+    url:'/api/info',
     method: "get",
     response:()=>{
       return {
-        code:0,
+        code:200,
+        message:'请求成功',
+        type:'success',
         data:{
-          name:"xixi"
+          name:"刘圣书",
+          age:18,
+          avatar:''
         }
       }
     }

@@ -3,7 +3,7 @@
 <template>
   <div class="m-5 grid grid-flow-col gap-3 justify-start">
     <a
-      class="text-sm text-gray-600 bg-white rounded-md py-2 px-5 m-1"
+      class="text-sm text-gray-600 hover:bg-violet-600  duration-150 bg-white border rounded-sm shadow-sm py-2 px-3 m-1"
       href="#"
       v-for="(n, index) of links"
       :key="index"

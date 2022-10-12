@@ -3,8 +3,9 @@ import { RouteRecordRaw } from "vue-router";
 export const routers={
     name: 'admin',
     path: '/admin',
+    redirect:'/admin/home',
     meta:{
-         auth:true,
+         auth:false,
     },
     component: () => import('@/layouts/admin.vue'),
     children:[

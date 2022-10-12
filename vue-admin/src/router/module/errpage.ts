@@ -7,7 +7,8 @@ export const routers = {
   meta: {
     title: '错误页面',
     icon: 'fab fa-airbnb',
-    show: true
+    show: true,
+    auth:true
   },
 
   children: [
