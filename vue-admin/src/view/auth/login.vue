@@ -70,6 +70,7 @@ import hdLink from "@/components/from/hdLink.vue";
 
 import userApi from "@/api/userApi";
 import { useRouter } from "vue-router";
+import { log } from 'console';
 
 const { Field, Form, ErrorMessage } = v;
 components: {
@@ -83,8 +84,8 @@ const onSubmit = async (valuse) => {
     result: { token },
   } = await userApi.login(valuse);
   store.set("token", {
-    expire: 100,
-    name: "adfasdf",
+    expire: 130000,
+    token,
   });
   router.push({ name: "home" });
 };

@@ -10,6 +10,9 @@ const routers = [
     path: '/login',
     name:"auth.login",
     component: () => import("@/view/auth/login.vue"),
+    meta:{
+      guest:true
+    }
   }
 ] as RouteRecordRaw[]
 

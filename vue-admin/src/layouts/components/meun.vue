@@ -36,12 +36,11 @@
 
 <script setup lang="ts">
 import { router } from "@/store/router";
-import { ref } from "vue";
-import { RouteRecordNormalized, RouteRecordRaw } from "vue-router";
+import { RouteRecordNormalized, RouteRecordRaw,useRouter } from "vue-router";
 
-
+const routerService=useRouter();
 const routerStore = router();
-console.log("routerStore", routerStore.router);
+
 
 const resetMuen = () => {
   routerStore.router.forEach((item) => {
@@ -49,6 +48,7 @@ const resetMuen = () => {
     item.children?.forEach((item) => {
       if (item.meta) {
         item.meta.isClick = false;
+        
       }
     });
   });
@@ -59,6 +59,7 @@ const hadle = (pmenu: RouteRecordNormalized, cmenu?: RouteRecordRaw) => {
   pmenu.meta.isClick = true;
   if (cmenu && cmenu.meta) {
     cmenu.meta.isClick = true;
+    routerService.push(cmenu)
   }
 };
 </script>

@@ -8,7 +8,7 @@ export  const routers={
       icon: 'fab fa-algolia',
       show: true
     },
-      component: () => import('@/layouts/editor.vue'),
+      component: () => import('@/layouts/admin.vue'),
     children:[
       {
         name: 'editor.markdown',

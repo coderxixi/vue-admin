@@ -3,7 +3,7 @@ import { RouteRecordRaw } from "vue-router";
 export const routers = {
   name: 'errpage',
   path: '/errpage',
-  component: () => import('@/layouts/error.vue'),
+  component: () => import('@/layouts/admin.vue'),
   meta: {
     title: '错误页面',
     icon: 'fab fa-airbnb',
