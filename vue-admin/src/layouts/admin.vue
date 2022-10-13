@@ -21,7 +21,13 @@
       <historyLink  class="hidden md:block"/>
       <!-- 路由页面 -->
       <div class="m-5">
-        <router-view />
+        <router-view #default="{Component}">
+          <!-- 页面添加过渡动画 -->
+          <Transition enter-active-class="animate__animated animate__backInRight">
+            <component :is="Component"/>
+          </Transition>
+         
+        </router-view>
       </div>
      
     </div>
