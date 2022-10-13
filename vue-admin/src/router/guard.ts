@@ -36,7 +36,7 @@ class Guard {
     if (this.isGuest(to) === false) return { name: 'home' }
     await this.getuserInfo()
   
-    menuStore().addHistoryMenu(to)
+    // menuStore().addHistoryMenu(to)
   }
   //token 
   private token(): string | null {
