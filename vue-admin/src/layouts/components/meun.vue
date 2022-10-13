@@ -54,11 +54,11 @@ const resetMuen = () => {
 };
 
 const hadle = (pmenu:IMenu, cmenu?: IMenu ) => {
-  // resetMuen();
+  resetMuen();
   pmenu.isClick = true;
   if (cmenu) {
     cmenu.isClick = true;
-    // routerService.push(cmenu)
+    routerService.push({name:cmenu.route})
   }
 };
 </script>

@@ -27,12 +27,12 @@ export default defineStore('router', {
           return route.meta?.menu
         })
         .map((route)=>{
-          return route.meta?.menu
+          return {...route.meta?.menu,route:route.name}
         }) as IMenu[]
         
         return menu 
       })
-      // .filter((route)=> route.children?.length) as IMenu[]
+      .filter((route)=> route.children?.length) as IMenu[]
      
     }
   }

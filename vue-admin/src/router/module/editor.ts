@@ -3,16 +3,24 @@ import { RouteRecordRaw } from "vue-router";
 export  const routers={
     name: 'editor',
      path: '/editor',
+     meta: {
+      menu:{
+        title: '编辑器',
+        icon: 'fab fa-algolia',
+      }
+    
+    },
      component: () => import('@/layouts/admin.vue'),
       children:[
       {
         name: 'editor.markdown',
         path: '/editor/markdown',
         meta: {
-          title: 'markdown编辑',
-          icon: 'fab fa-airbnb',
-          show: true,
-          auth:true
+          menu:{
+            title: 'markdown编辑',
+            icon: 'fab fa-airbnb',
+          }
+        
         },
         component: () => import('@/view/editor/markdown.vue'),
        },

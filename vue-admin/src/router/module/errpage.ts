@@ -4,8 +4,10 @@ import { RouteRecordRaw } from "vue-router";
 export const routers = {
   name: 'errpage',
   path: '/errpage',
+  
   meta: {
     menu:{
+      icon:'fab fa-airbnb',
       title:'错误页面'
     }
    
