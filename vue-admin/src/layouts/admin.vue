@@ -18,31 +18,34 @@
       <!-- 导航栏 -->
       <NavBar />
       <!-- 历史菜单 -->
-      <historyLink  class="hidden md:block"/>
+      <historyLink class="hidden md:block" />
       <!-- 路由页面 -->
       <div class="m-5">
-        <router-view #default="{Component}">
+        <router-view #default="{ Component }">
           <!-- 页面添加过渡动画 -->
-          <Transition enter-active-class="animate__animated animate__backInRight">
-            <component :is="Component"/>
+          <Transition
+            enter-active-class="animate__animated animate__backInRight"
+          >
+            <component :is="Component" />
           </Transition>
-         
         </router-view>
       </div>
-     
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import meun from "./components/meun.vue"
-import NavBar from "./components/navBar.vue"
-import historyLink from "./components/historyLink.vue"
-import menuStore from "@/store/menuStore"
-import { log } from "console"
- const menu= menuStore() 
-menu.init()
-console.log('safs',menu.init());
+import meun from "./components/meun.vue";
+import NavBar from "./components/navBar.vue";
+import historyLink from "./components/historyLink.vue";
+import menuStore from "@/store/menuStore";
+import { onBeforeRouteUpdate, useRoute } from "vue-router";
+const route = useRoute();
+const menu = menuStore();
+menu.init();
+// onBeforeRouteUpdate(() => {
+//   menu.addHistoryMenu(route);
+// });
 
 </script>
 

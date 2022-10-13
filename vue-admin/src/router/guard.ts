@@ -35,10 +35,7 @@ class Guard {
     if (this.isLogin(to) === false) return { name: 'auth.login' }
     if (this.isGuest(to) === false) return { name: 'home' }
     await this.getuserInfo()
-
-    //权限处理
-
-    //历史菜单
+  
     menuStore().addHistoryMenu(to)
   }
   //token 
