@@ -3,11 +3,11 @@ import {createRouter,createWebHashHistory} from "vue-router";
 import routers  from "./routes";
 import layoutRoutes from "./autolaod/index";
 import guard from "./guard"
-console.log('layoutRoutes',layoutRoutes);
+console.log('layoutRoutes',layoutRoutes.pop());
 
 const router=createRouter({
   history:createWebHashHistory(),
-  routes:[...routers],
+  routes:[...routers,...layoutRoutes],
 })
 
 export default router

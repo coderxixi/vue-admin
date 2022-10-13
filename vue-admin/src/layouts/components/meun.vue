@@ -8,26 +8,26 @@
       <dt class="flex justify-between" @click="hadle(route)">
         <div class="flex items-center justify-between">
           <section>
-            <i class="fab mr-3 text-[18px]" :class="route?.menu?.icon"></i>
-            {{ route.meta.title }}
+            <i class="fab mr-3 text-[18px]" :class="route.icon"></i>
+            {{ route.title }}
           </section>
         </div>
         <i
           class="fas fa-angle-down duration-300"
-          :class="{ 'rotate-180': route.meta.isClick }"
+          :class="{ 'rotate-180': route.isClick }"
         ></i>
       </dt>
       <dd
-        v-show="route.meta?.isClick"
+        v-show="route.isClick"
         @click="hadle(route,childrenRoute)"
         v-for="(childrenRoute, index) of route.children"
         :key="index"
       >
         <div
-          :class="{ active: childrenRoute.meta?.isClick }"
+          :class="{ active: childrenRoute.isClick }"
           class="bg-zinc-600 mt-2 py-2 rounded-md text-white text-center"
         >
-          {{ childrenRoute.meta?.title }}
+          {{ childrenRoute.title }}
         </div>
       </dd>
     </dl>
@@ -35,31 +35,30 @@
 </template>
 
 <script setup lang="ts">
-import router  from "@/store/menuStore";
-import { RouteRecordNormalized, RouteRecordRaw,useRouter } from "vue-router";
+import { IMenu } from "#/menu";
+import menuStore  from "@/store/menuStore";
+import { useRouter } from "vue-router";
 
 const routerService=useRouter();
-const routerStore = router();
+const routerStore = menuStore();
 
+console.log('afasdf',routerStore.router);
 
 const resetMuen = () => {
   routerStore.router.forEach((item) => {
-    item.meta.isClick = false;
+    item.isClick = false;
     item.children?.forEach((item) => {
-      if (item.meta) {
-        item.meta.isClick = false;
-        
-      }
+      item.isClick = false;
     });
   });
 };
 
-const hadle = (pmenu: RouteRecordNormalized, cmenu?: RouteRecordRaw) => {
-  resetMuen();
-  pmenu.meta.isClick = true;
-  if (cmenu && cmenu.meta) {
-    cmenu.meta.isClick = true;
-    routerService.push(cmenu)
+const hadle = (pmenu:IMenu, cmenu?: IMenu ) => {
+  // resetMuen();
+  pmenu.isClick = true;
+  if (cmenu) {
+    cmenu.isClick = true;
+    // routerService.push(cmenu)
   }
 };
 </script>

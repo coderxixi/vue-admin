@@ -11,6 +11,8 @@ export default defineStore('router', {
   },
   actions:{
     init(){
+      console.log('ququeoiuwqor',this.getMenuByRoute(),router.getRoutes());
+      
       this.getMenuByRoute()
     },
     getMenuByRoute(){
@@ -23,13 +25,14 @@ export default defineStore('router', {
         let menu:IMenu={...route.meta?.menu};
            menu.children= route.children.filter((route)=>{
           return route.meta?.menu
-        }).map((route)=>{
+        })
+        .map((route)=>{
           return route.meta?.menu
         }) as IMenu[]
         
         return menu 
       })
-      .filter((route)=>route.children?.length) as IMenu[]
+      // .filter((route)=> route.children?.length) as IMenu[]
      
     }
   }

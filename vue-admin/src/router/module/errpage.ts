@@ -4,6 +4,12 @@ import { RouteRecordRaw } from "vue-router";
 export const routers = {
   name: 'errpage',
   path: '/errpage',
+  meta: {
+    menu:{
+      title:'错误页面'
+    }
+   
+  },
   component: () => import('@/layouts/admin.vue'),
   children: [
     {
@@ -22,7 +28,6 @@ export const routers = {
       meta: {
         menu: {
           title: '403页面',
-
         }
       },
       component: () => import('@/view/errpage/403.vue'),

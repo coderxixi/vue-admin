@@ -14,7 +14,8 @@ class Guard {
   }
   //路由检测
   private isLogin(route: RouteLocationNormalized) {
-
+   console.log('route.meta.auth',route.meta.auth);
+   
     const state = Boolean(!route.meta.auth || (route.meta.auth && !this.token()))
     if (state === false) {
       storage.set(CacheKey.HISTORY_MENU,route.name)
@@ -23,6 +24,7 @@ class Guard {
   }
   //游客处理
   private isGuest(route: RouteLocationNormalized) {
+    console.log('route.meta.guest',route.meta.guest);
     return Boolean(!route.meta.guest || (route.meta.guest && this.token()))
   }
   private async beforEach(to: RouteLocationNormalized, from: RouteLocationNormalized) {
