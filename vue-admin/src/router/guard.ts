@@ -3,6 +3,7 @@ import useStorage from '@/composables/system/useStorage'
 import { RouteLocationNormalized, Router } from "vue-router"
 import user from "@/store/user"
 import { CacheKey } from "@/enum/CacheKey";
+import menuStore from '@/store/menuStore';
 const storage = useStorage()
 class Guard {
   constructor(protected router: Router) {
@@ -36,6 +37,9 @@ class Guard {
     await this.getuserInfo()
 
     //权限处理
+
+    //历史菜单
+    menuStore().addHistoryMenu(to)
   }
   //token 
   private token(): string | null {
