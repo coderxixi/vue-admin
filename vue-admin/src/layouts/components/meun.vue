@@ -8,7 +8,7 @@
       <dt class="flex justify-between" @click="hadle(route)">
         <div class="flex items-center justify-between">
           <section>
-            <i class="fab mr-3 text-[18px]" :class="route.meta.icon"></i>
+            <i class="fab mr-3 text-[18px]" :class="route?.menu?.icon"></i>
             {{ route.meta.title }}
           </section>
         </div>
@@ -35,7 +35,7 @@
 </template>
 
 <script setup lang="ts">
-import { router } from "@/store/router";
+import router  from "@/store/menuStore";
 import { RouteRecordNormalized, RouteRecordRaw,useRouter } from "vue-router";
 
 const routerService=useRouter();

@@ -29,14 +29,15 @@
 </template>
 
 <script setup lang="ts">
-import meun from "./components/meun.vue";
-import NavBar from "./components/navBar.vue";
-import historyLink from "./components/historyLink.vue";
-components: {
-  meun;
-  NavBar;
-  historyLink;
-}
+import meun from "./components/meun.vue"
+import NavBar from "./components/navBar.vue"
+import historyLink from "./components/historyLink.vue"
+import menuStore from "@/store/menuStore"
+import { log } from "console"
+ const menu= menuStore() 
+menu.init()
+console.log('safs',menu.init());
+
 </script>
 
 <style scoped lang="scss">

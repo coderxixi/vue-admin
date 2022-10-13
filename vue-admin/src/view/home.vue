@@ -14,11 +14,7 @@
 
 </script>
 <script lang="ts">
-export default {
-  route:{
-    name:'home'
-  }
-}
+
 </script>
 <style scoped>
 

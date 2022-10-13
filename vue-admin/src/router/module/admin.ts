@@ -6,6 +6,7 @@ export const routers={
     redirect:'/admin/home',
     meta:{
          auth:false,
+         
     },
     component: () => import('@/layouts/admin.vue'),
     children:[
@@ -13,4 +14,4 @@ export const routers={
         name: 'admin.home', path: '/admin/home', component: () => import('@/view/admin/home.vue'),
     }
   ]
-  } as RouteRecordRaw
+  } 

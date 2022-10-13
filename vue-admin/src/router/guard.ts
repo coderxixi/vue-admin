@@ -37,7 +37,7 @@ class Guard {
   }
   //token 
   private token(): string | null {
-    return storage.get(CacheKey.TOKEN_NAME).token
+    return storage.get(CacheKey.TOKEN_NAME)?.token
   }
   //获取用户
   private getuserInfo() {

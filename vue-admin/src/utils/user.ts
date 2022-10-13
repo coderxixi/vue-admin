@@ -5,7 +5,6 @@ import router from '@/router';
 import user from "@/store/user"
 
 export function loginOut(){
-  
   useStorage().remove(CacheKey.TOKEN_NAME)
   user().info=null
   router.push("/");

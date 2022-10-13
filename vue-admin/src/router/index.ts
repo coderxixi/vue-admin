@@ -7,7 +7,7 @@ console.log('layoutRoutes',layoutRoutes);
 
 const router=createRouter({
   history:createWebHashHistory(),
-  routes:[...routers,...layoutRoutes],
+  routes:[...routers],
 })
 
 export default router
