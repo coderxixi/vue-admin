@@ -34,13 +34,14 @@ import NavBar from "./components/navBar.vue";
 import historyLink from "./components/historyLink.vue";
 import menuStore from "@/store/menuStore";
 import menuService from "@/composables/menu";
+import {  watch} from "vue";
 import { onBeforeRouteUpdate, useRoute } from "vue-router";
 const route = useRoute();
 const menu = menuStore();
-menu.init();
-onBeforeRouteUpdate(()=>{
+// menu.init();
+watch(route,()=>{
   menuService.addHistoryMenu(route)
-})
+},{immediate:true })
 </script>
 
 <style scoped lang="scss">
