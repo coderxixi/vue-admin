@@ -2,7 +2,7 @@
   <div>
     <dl
       class="text-gray-300 text-sm"
-      v-for="(route, index) of routerStore.router"
+      v-for="(route, index) of menuService.menus.value"
       :key="index"
     >
       <dt class="flex justify-between" @click="hadle(route)">
@@ -38,14 +38,14 @@
 import { IMenu } from "#/menu";
 import menuStore  from "@/store/menuStore";
 import { useRouter } from "vue-router";
-
+import menuService from "@/composables/menu"
 const routerService=useRouter();
 const routerStore = menuStore();
 
-console.log('afasdf',routerStore.router);
+
 
 const resetMuen = () => {
-  routerStore.router.forEach((item) => {
+  menuService.menus.value.forEach((item) => {
     item.isClick = false;
     item.children?.forEach((item) => {
       item.isClick = false;

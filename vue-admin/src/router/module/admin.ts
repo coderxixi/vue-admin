@@ -4,9 +4,12 @@ export const routers={
     name: 'admin',
     path: '/admin',
     redirect:'/admin/home',
-    // meta:{
-    //      auth:true,
-    // },
+    meta:{
+         menu:{
+          title:'首页',
+          icon:'fab fa-bilibili'
+         }
+    },
     component: () => import('@/layouts/admin.vue'),
     children:[
       {
@@ -14,7 +17,7 @@ export const routers={
         path: '/admin/home', 
         meta:{
           menu:{
-
+            title:'数据面板'
           }
         },
         component: () => import('@/view/admin/home.vue'),
