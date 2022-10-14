@@ -1,10 +1,18 @@
 <template>
   <div class="flex justify-between items-center pr-4 pl-4 h-[48px] bg-white">
+    <div class="flex items-center ">
+      <div @click="menuService.toggleMenu">
+        <i class="fas fa-square-caret-left mr-3 cursor-pointer"  v-if="menuService.close.value"></i>
+        <i class="fas fa-square-caret-right mr-3 cursor-pointer" v-else></i>
+      </div>
+     
     <el-breadcrumb separator="/">
       <el-breadcrumb-item :to="{ path: '/' }">编辑器</el-breadcrumb-item>
       <el-breadcrumb-item>富文本编辑器</el-breadcrumb-item>
       <!-- <el-breadcrumb-item>promotion detail</el-breadcrumb-item> -->
     </el-breadcrumb>
+    </div>
+   
 
     <div class="flex items-center justify-center relative group">
       <i
@@ -48,12 +56,15 @@
 <script setup lang="ts">
 import {loginOut} from "@/utils/index"
 import user from "@/store/user"
+import menuService from "@/composables/menu";
 const userStore =user();
 //退出登录
 const loginout=()=>{
   loginOut()
 }
+
 </script>
+
 
 <style scoped lang="scss">
 

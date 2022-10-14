@@ -8,7 +8,7 @@ export const routers = {
   meta: {
     menu:{
       icon:'fab fa-airbnb',
-      title:'错误页面'
+      title:'错误页面',
     }
    
   },
@@ -40,7 +40,6 @@ export const routers = {
       meta: {
         menu: {
           title: '402页面',
-
         }
       },
       component: () => import('@/view/errpage/402.vue'),

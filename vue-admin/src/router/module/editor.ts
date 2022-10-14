@@ -25,7 +25,16 @@ export  const routers={
         component: () => import('@/view/editor/markdown.vue'),
        },
        {
-        name: 'editor.base', path: '/editor/base', component: () => import('@/view/editor/base.vue'),
+        name: 'editor.base',
+         path: '/editor/base',
+         meta: {
+          menu:{
+            title: '富文本编辑',
+            icon: 'fab fa-angrycreative',
+          }
+        
+        },
+          component: () => import('@/view/editor/base.vue'),
        }
   ]
   } as RouteRecordRaw

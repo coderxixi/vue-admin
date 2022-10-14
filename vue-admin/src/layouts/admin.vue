@@ -1,19 +1,7 @@
 <template>
   <div class="admin grid grid-cols-[auto_1fr] h-screen w-screen">
-    <div class="menu w-[200px] bg-gray-800 p-4 hidden md:block">
-      <div class="logo text-gray-300 flex items-center justify-center">
-        <img
-          class="text-fuchsia-400 mr-2 w-12 rounded-3xl"
-          src="../assets/img/avar.jpeg"
-        />
-        <!-- <i class="fab fa-adn text-fuchsia-400 mr-2 text-[35px]"></i> -->
-        后台模版
-      </div>
-      <!-- 菜单 -->
-      <div class="left-container">
-        <meun />
-      </div>
-    </div>
+    <!-- 菜单 -->
+    <meun />
     <div class="content bg-gray-100 grid grid-rows-[auto_1fr]">
       <div>
         <!-- 导航栏 -->
@@ -32,7 +20,7 @@
             enter-active-class="animate__bounceInRight"
             leave-active-class="animate__fadeOutRightBig "
           >
-            <component :is="Component" class="absolute w-full"/>
+            <component :is="Component" class="absolute w-full" />
           </Transition>
         </router-view>
       </div>
@@ -45,29 +33,25 @@ import meun from "./components/meun.vue";
 import NavBar from "./components/navBar.vue";
 import historyLink from "./components/historyLink.vue";
 import menuStore from "@/store/menuStore";
+import menuService from "@/composables/menu";
 import { onBeforeRouteUpdate, useRoute } from "vue-router";
 const route = useRoute();
 const menu = menuStore();
 menu.init();
-onBeforeRouteUpdate(() => {
-  menu.addHistoryMenu(route);
-});
+onBeforeRouteUpdate(()=>{
+  menuService.addHistoryMenu(route)
+})
 </script>
 
 <style scoped lang="scss">
-.admin-menu {
-  @apply z-10 bg-gray-800 h-full absolute md:relative overflow-auto;
-  .menu {
-    @apply z-30 w-[200px];
-    .logo {
-      @apply text-gray-300 flex items-center p-4;
-    }
-  }
+.admin {
 }
-.animate__bounceInRight{
- animation-duration: 0.5s;
+.animate__bounceInRight {
+  animation-duration: 0.5s;
 }
-.animate__fadeOutRightBig{
+.animate__fadeOutRightBig {
   animation-duration: 0.3 s;
 }
+
+
 </style>
