@@ -15,9 +15,13 @@
    
 
     <div class="flex items-center justify-center relative group">
-      <i
+      <div >
+        <i
+        @click="fullScreen"
         class="fas cursor-pointer fa-expand hidden md:flex mr-3 text-gray-600"
       />
+      </div>
+     
       <img class="w-[30px] rounded-3xl" src="../../assets/img/avar.jpeg" />
       <span class="ml-3 text-sm text-gray-600">{{userStore.info?.name}}</span>
       <!-- 弹出菜单 -->
@@ -62,7 +66,11 @@ const userStore =user();
 const loginout=()=>{
   loginOut()
 }
-
+//全屏功能
+const fullScreen=()=>{
+  console.log("全屏功能" );
+  document.documentElement.requestFullscreen( )
+}
 </script>
 
 

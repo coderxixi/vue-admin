@@ -14,7 +14,7 @@
       </template>
       <section class="flex justify-between items-center">
         <span class="text-2xl"> {{ n.price }}</span>
-        <i class="fab fa-algolia text-violet-500 text-4xl"></i>
+        <i class="text-violet-500 text-4xl" :class="n.icon "></i>
       </section>
       <section class="text-xs flex justify-between mt-5">
         {{ n.totalTitle }}<span> {{ n.total }}</span>
@@ -53,28 +53,28 @@ interface ICard {
 const data = ref<ICard[]>([
   {
     title: "总人数",
-    icon: "fab fa-algolia",
+    icon: "fab fa-alipay",
     price: 233343,
     total: 87685678,
     totalTitle: "总人数",
   },
   {
     title: "销售额",
-    icon: "fab fa-accessible-icon",
+    icon: "fab fa-apple",
     price: 233343,
     total: 87685678,
     totalTitle: "总销售额",
   },
   {
     title: "订单数",
-    icon: "fab fa-angellist",
+    icon: "fab fa-behance-square",
     price: 233343,
     total: 87685678,
     totalTitle: "总订单数",
   },
   {
     title: "评论数",
-    icon: "fab fa-aviato",
+    icon: "fab fa-centercode",
     price: 233343,
     total: 87685678,
     totalTitle: "总评论数",

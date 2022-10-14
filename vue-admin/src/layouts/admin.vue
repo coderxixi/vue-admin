@@ -1,5 +1,5 @@
 <template>
-  <div class="admin grid grid-cols-[auto_1fr] h-screen w-screen">
+  <div class="admin  md:grid  md:grid-cols-[auto_1fr] h-screen w-screen">
     <!-- 菜单 -->
     <meun />
     <div class="content bg-gray-100 grid grid-rows-[auto_1fr]">
