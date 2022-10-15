@@ -15,10 +15,11 @@
    
 
     <div class="flex items-center justify-center relative group">
-      <div >
+      <div class="flex items-center">
+        <notification class="mr-2"/>
         <i
         @click="fullScreen"
-        class="fas cursor-pointer fa-expand hidden md:flex mr-3 text-gray-600"
+        class="fas cursor-pointer fa-expand hidden md:flex mr-5 text-gray-600"
       />
       </div>
      
@@ -58,6 +59,7 @@
 </template>
 
 <script setup lang="ts">
+import notification from "@/components/notification.vue";
 import {loginOut} from "@/utils/index"
 import user from "@/store/user"
 import menuService from "@/composables/menu";
