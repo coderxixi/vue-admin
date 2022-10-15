@@ -1,7 +1,7 @@
 <template>
   <div class="notification">
-    <i class="fab fa-algolia cursor-pointer" @click="handleClick"></i>
-    <el-tabs v-model="activeName" class="lists" v-show="show">
+    <i class="fab fa-algolia cursor-pointer" @click.stop="handleClick"></i>
+    <el-tabs v-model="activeName" class="lists" v-show="show" @click.stop>
     <el-tab-pane label="站内消息" name="first">
      <a href="http://" >
         框架很快就会看见哈师傅看见啊书法考级哈打开肌肤哈空间发挥空间撒谎饭卡设计开发和科技的飞机啊是
@@ -37,13 +37,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref,nextTick} from 'vue';
 
 const activeName=ref('site');
 const show=ref(false)
 const handleClick=()=>{
    show.value=!show.value
 }
+nextTick(()=>{
+  document.documentElement.addEventListener("click",(e)=>{
+    
+    show.value=false
+  })
+})
 </script>
 
 <style scoped lang="scss">
