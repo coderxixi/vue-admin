@@ -14,15 +14,15 @@
     </div>
    
 
-    <div class="flex items-center justify-center relative group">
+    <div class="flex items-center justify-center relative ">
       <div class="flex items-center">
         <notification class="mr-2"/>
         <i
         @click="fullScreen"
-        class="fas cursor-pointer fa-expand hidden md:flex mr-5 text-gray-600"
+        class="fas cursor-pointer fa-expand hidden md:flex mr-8 text-gray-600"
       />
       </div>
-     
+     <div class="flex items-center group">
       <img class="w-[30px] rounded-3xl" src="../../assets/img/avar.jpeg" />
       <span class="ml-3 text-sm text-gray-600">{{userStore.info?.name}}</span>
       <!-- 弹出菜单 -->
@@ -54,6 +54,8 @@
         </div>
       
       </section>
+     </div>
+     
     </div>
   </div>
 </template>

@@ -1,8 +1,24 @@
 <template>
   <div class="notification">
-    <i class="fab fa-algolia"></i>
-    <el-tabs v-model="activeName" class="lists" @tab-click="handleClick">
+    <i class="fab fa-algolia cursor-pointer" @click="handleClick"></i>
+    <el-tabs v-model="activeName" class="lists" v-show="show">
     <el-tab-pane label="站内消息" name="first">
+     <a href="http://" >
+        框架很快就会看见哈师傅看见啊书法考级哈打开肌肤哈空间发挥空间撒谎饭卡设计开发和科技的飞机啊是
+        框架很快就会看见哈师傅看见啊书法考级哈打开肌肤哈空间发挥空间撒谎饭卡设计开发和科技的飞机啊是
+        框架很快就会看见哈师傅看见啊书法考级哈打开肌肤哈空间发挥空间撒谎饭卡设计开发和科技的飞机啊是
+        框架很快就会看见哈师傅看见啊书法考级哈打开肌肤哈空间发挥空间撒谎饭卡设计开发和科技的飞机啊是
+        框架很快就会看见哈师傅看见啊书法考级哈打开肌肤哈空间发挥空间撒谎饭卡设计开发和科技的飞机啊是
+        框架很快就会看见哈师傅看见啊书法考级哈打开肌肤哈空间发挥空间撒谎饭卡设计开发和科技的飞机啊是
+     </a>
+     <a href="http://" >
+        框架很快就会看见哈师傅看见啊书法考级哈打开肌肤哈空间发挥空间撒谎饭卡设计开发和科技的飞机啊是
+        框架很快就会看见哈师傅看见啊书法考级哈打开肌肤哈空间发挥空间撒谎饭卡设计开发和科技的飞机啊是
+        框架很快就会看见哈师傅看见啊书法考级哈打开肌肤哈空间发挥空间撒谎饭卡设计开发和科技的飞机啊是
+        框架很快就会看见哈师傅看见啊书法考级哈打开肌肤哈空间发挥空间撒谎饭卡设计开发和科技的飞机啊是
+        框架很快就会看见哈师傅看见啊书法考级哈打开肌肤哈空间发挥空间撒谎饭卡设计开发和科技的飞机啊是
+        框架很快就会看见哈师傅看见啊书法考级哈打开肌肤哈空间发挥空间撒谎饭卡设计开发和科技的飞机啊是
+     </a>
      <a href="http://" >
         框架很快就会看见哈师傅看见啊书法考级哈打开肌肤哈空间发挥空间撒谎饭卡设计开发和科技的飞机啊是
         框架很快就会看见哈师傅看见啊书法考级哈打开肌肤哈空间发挥空间撒谎饭卡设计开发和科技的飞机啊是
@@ -24,8 +40,9 @@
 import { ref } from 'vue';
 
 const activeName=ref('site');
+const show=ref(false)
 const handleClick=()=>{
-
+   show.value=!show.value
 }
 </script>
 
@@ -33,8 +50,10 @@ const handleClick=()=>{
 .notification{
   @apply relative;
   .lists{
-    @apply absolute bg-white p-5 border rounded-md shadow-sm right-[-60px] z-10 w-[300px];
-
+    @apply absolute bg-white p-5 border rounded-md shadow-sm right-[-60px] z-10 w-[300px] text-sm;
+     a{
+      @apply truncate overflow-hidden block border-b pb-2 my-3 hover:text-violet-800;
+     }
   }
 }
 </style>
