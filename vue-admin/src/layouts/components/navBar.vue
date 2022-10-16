@@ -5,12 +5,8 @@
         <i class="fas fa-square-caret-left mr-3 cursor-pointer"  v-if="menuService.close.value"></i>
         <i class="fas fa-square-caret-right mr-3 cursor-pointer" v-else></i>
       </div>
-     
-    <el-breadcrumb separator="/">
-      <el-breadcrumb-item :to="{ path: '/' }">编辑器</el-breadcrumb-item>
-      <el-breadcrumb-item>富文本编辑器</el-breadcrumb-item>
-      <!-- <el-breadcrumb-item>promotion detail</el-breadcrumb-item> -->
-    </el-breadcrumb>
+     <!-- 面包屑组件 -->
+   <breadcrumb/>
     </div>
    
 
@@ -61,8 +57,10 @@
 </template>
 
 <script setup lang="ts">
-import notification from "@/components/notification.vue";
 import {loginOut} from "@/utils/index"
+import notification from "@/components/notification.vue";
+import breadcrumb from "@/components/breadcrumb.vue"
+
 import user from "@/store/user"
 import menuService from "@/composables/menu";
 const userStore =user();
