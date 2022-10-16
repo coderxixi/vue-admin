@@ -19,8 +19,8 @@ export  const routers={
           menu:{
             title: 'markdown编辑',
             icon: 'fab fa-airbnb',
-          }
-        
+          },
+          // permissions:['abc']
         },
         component: () => import('@/view/editor/markdown.vue'),
        },
@@ -32,7 +32,7 @@ export  const routers={
             title: '富文本编辑',
             icon: 'fab fa-angrycreative',
           },
-          permissions:'editor_markdown'
+          permissions:'abc'
         
         },
           component: () => import('@/view/editor/base.vue'),

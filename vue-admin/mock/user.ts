@@ -13,7 +13,7 @@ export default [
           name:"刘圣书",
           age:18,
           avatar:'',
-          permissions:['editor_markdowm','article_edit']
+          permissions:['editor_markdowm','abc']
         }
       }
     }
