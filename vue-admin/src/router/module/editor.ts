@@ -31,7 +31,8 @@ export  const routers={
           menu:{
             title: '富文本编辑',
             icon: 'fab fa-angrycreative',
-          }
+          },
+          permissions:'editor_markdown'
         
         },
           component: () => import('@/view/editor/base.vue'),

@@ -12,7 +12,8 @@ export default [
         data:{
           name:"刘圣书",
           age:18,
-          avatar:''
+          avatar:'',
+          permissions:['editor_markdowm','article_edit']
         }
       }
     }
