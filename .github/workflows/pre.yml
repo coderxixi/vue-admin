@@ -25,8 +25,8 @@ jobs:
 
       # - name: ESLintCode
       #   uses: actions/setup-node@v2
-      # - run: yarn
-      # - run: npm install -g eslint && eslint ./src/*/**.js
+      - run: yarn
+      - run: npm install 
      
   Deploy:
     needs: Check
