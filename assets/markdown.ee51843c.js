@@ -1,0 +1,1 @@
+import{e}from"./editor.2e465091.js";import{l as o,o as r,c as t,e as a}from"./index.79b99562.js";import"./_plugin-vue_export-helper.cdc0426e.js";const i=o({__name:"markdown",setup(n){return(c,m)=>(r(),t("div",null,[a(e)]))}});export{i as default};
