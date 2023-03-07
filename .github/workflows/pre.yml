@@ -46,4 +46,4 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: master
       - run: yarn
-      - run: yarn build:pre
+      - run: yarn build
