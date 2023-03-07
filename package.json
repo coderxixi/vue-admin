@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "homepage": "https://coderXixi.github.io/vue-admin",
+  "homepage": "https://coderxixi.github.io/vue-admin",
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.9",
     "@icon-park/vue-next": "^1.4.2",
