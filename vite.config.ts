@@ -20,6 +20,7 @@ export default ({ command, mode }: ConfigEnv) => {
   const env=parseEnv(loadEnv(mode,root));
   
   return {
+    base:'./',
     resolve: {
       alias,
     },
