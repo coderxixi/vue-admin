@@ -1,1 +1,0 @@
-import{_ as t}from"./_plugin-vue_export-helper.cdc0426e.js";import{o,c as r,b as s,r as a}from"./index.79b99562.js";const c={},n={href:"",class:"text-xs text-gray-700 hover:text-violet-700"};function l(e,_){return o(),r("div",null,[s("a",n,[a(e.$slots,"default")])])}const i=t(c,[["render",l]]);export{i as default};
