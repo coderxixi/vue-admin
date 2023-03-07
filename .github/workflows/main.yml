@@ -9,7 +9,7 @@ env:
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 permissions: 
   contents: write
@@ -49,7 +49,7 @@ jobs:
         uses: actions/setup-node@v2
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: main
+          BRANCH: master
       - run: yarn
       - run: yarn build:prod
 
