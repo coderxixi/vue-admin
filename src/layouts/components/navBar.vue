@@ -27,7 +27,7 @@
           border
           rounded-md
           absolute
-         top-full
+          top-full
           bg-white
           shadow-sm
           px-3
